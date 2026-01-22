@@ -42,7 +42,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+254 700 000 000</span>
+                <span>+254 745 922 797</span>
               </div>
             </div>
           </div>
