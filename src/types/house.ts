@@ -47,12 +47,10 @@ export const HOUSE_TYPE_LABELS: Record<HouseType, string> = {
 };
 
 export const LOCATIONS = [
-  'Gate A',
-  'Gate B',
-  'Gate C',
-  'Town Center',
-  'Phase 1',
-  'Phase 2',
-  'Near Main Campus',
+  'Near Campus',
   'Off Campus Road',
+  'Kwa Kamanga',
+  'Ndacha',
+  'Mawatha',
+  'Near Shell',
 ];
