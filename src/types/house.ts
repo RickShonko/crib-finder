@@ -1,4 +1,4 @@
-export type HouseType = 'bedsitter' | 'one_bedroom' | 'two_bedroom' | 'shared';
+export type HouseType = 'bedsitter' | 'single_room' | 'one_bedroom' | 'two_bedroom' | 'shared';
 export type AvailabilityStatus = 'available' | 'taken';
 
 export interface House {
@@ -41,6 +41,7 @@ export interface HouseFilters {
 
 export const HOUSE_TYPE_LABELS: Record<HouseType, string> = {
   bedsitter: 'Bedsitter',
+  single_room: 'Single Room',
   one_bedroom: '1 Bedroom',
   two_bedroom: '2 Bedroom',
   shared: 'Shared',

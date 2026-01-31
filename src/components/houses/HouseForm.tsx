@@ -18,7 +18,7 @@ const houseSchema = z.object({
   rent_price: z.number().min(1000, 'Rent must be at least KES 1,000').max(500000, 'Rent must be less than KES 500,000'),
   deposit_amount: z.number().min(0).max(500000),
   location: z.string().min(1, 'Please select a location'),
-  house_type: z.enum(['bedsitter', 'one_bedroom', 'two_bedroom', 'shared'] as const),
+  house_type: z.enum(['bedsitter', 'single_room', 'one_bedroom', 'two_bedroom', 'shared'] as const),
   is_furnished: z.boolean(),
   availability: z.enum(['available', 'taken'] as const),
   contact_phone: z.string().min(10, 'Please enter a valid phone number').max(15),
