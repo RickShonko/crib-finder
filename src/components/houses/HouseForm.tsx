@@ -218,8 +218,9 @@ export function HouseForm({ house, landlordId, onSubmit, isLoading }: HouseFormP
                 <FormControl>
                   <Input
                     type="number"
-                    {...field}
-                    onChange={(e) => field.onChange(Number(e.target.value))}
+                    value={field.value || ''}
+                    onChange={(e) => field.onChange(e.target.value === '' ? 0 : Number(e.target.value))}
+                    onFocus={(e) => { if (field.value === 0) e.target.value = ''; }}
                   />
                 </FormControl>
                 <FormMessage />
