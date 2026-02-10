@@ -70,45 +70,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 bg-background">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
-              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
-                <Home className="h-7 w-7 text-accent-foreground" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Verified Listings</h3>
-              <p className="text-muted-foreground text-sm">
-                All properties are verified and located near campus for easy commute.
-              </p>
-            </div>
-
-            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
-              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-7 w-7 text-accent-foreground" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Direct Contact</h3>
-              <p className="text-muted-foreground text-sm">
-                Connect with landlords directly via WhatsApp or phone call.
-              </p>
-            </div>
-
-            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
-              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-7 w-7 text-accent-foreground" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Safe & Trusted</h3>
-              <p className="text-muted-foreground text-sm">
-                Landlords are required to provide valid contact information.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Listings */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-background">
         <div className="container">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -145,6 +108,43 @@ const Index = () => {
               </Button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
+              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <Home className="h-7 w-7 text-accent-foreground" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Verified Listings</h3>
+              <p className="text-muted-foreground text-sm">
+                All properties are verified and located near campus for easy commute.
+              </p>
+            </div>
+
+            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
+              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <Phone className="h-7 w-7 text-accent-foreground" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Direct Contact</h3>
+              <p className="text-muted-foreground text-sm">
+                Connect with landlords directly via WhatsApp or phone call.
+              </p>
+            </div>
+
+            <div className="text-center p-6 rounded-xl bg-card border border-border hover-lift">
+              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-7 w-7 text-accent-foreground" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Safe & Trusted</h3>
+              <p className="text-muted-foreground text-sm">
+                Landlords are required to provide valid contact information.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
