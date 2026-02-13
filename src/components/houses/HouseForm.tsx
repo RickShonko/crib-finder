@@ -23,6 +23,7 @@ const houseSchema = z.object({
   availability: z.enum(['available', 'taken'] as const),
   contact_phone: z.string().min(10, 'Please enter a valid phone number').max(15),
   whatsapp_link: z.string().optional(),
+  vacant_positions: z.number().min(0, 'Cannot be negative').max(100, 'Maximum 100'),
 });
 
 type HouseFormData = z.infer<typeof houseSchema>;
@@ -51,6 +52,7 @@ export function HouseForm({ house, landlordId, onSubmit, isLoading }: HouseFormP
       availability: house?.availability || 'available',
       contact_phone: house?.contact_phone || '',
       whatsapp_link: house?.whatsapp_link || '',
+      vacant_positions: house?.vacant_positions ?? 1,
     },
   });
 
@@ -98,6 +100,7 @@ export function HouseForm({ house, landlordId, onSubmit, isLoading }: HouseFormP
       availability: data.availability,
       contact_phone: data.contact_phone,
       whatsapp_link: data.whatsapp_link || null,
+      vacant_positions: data.vacant_positions,
       landlord_id: landlordId,
       photos,
     });
@@ -228,6 +231,25 @@ export function HouseForm({ house, landlordId, onSubmit, isLoading }: HouseFormP
             )}
           />
         </div>
+
+        <FormField
+          control={form.control}
+          name="vacant_positions"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Number of Vacant Positions</FormLabel>
+              <FormControl>
+                <Input
+                  type="number"
+                  {...field}
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                />
+              </FormControl>
+              <FormDescription>How many units are available for rent?</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField

@@ -15,6 +15,7 @@ export interface House {
   photos: string[];
   contact_phone: string;
   whatsapp_link: string | null;
+  vacant_positions: number;
   created_at: string;
   updated_at: string;
 }
