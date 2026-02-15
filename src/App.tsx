@@ -12,6 +12,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import NewListing from "./pages/NewListing";
 import EditListing from "./pages/EditListing";
+import PaymentCheckout from "./pages/PaymentCheckout";
+import PaymentVerify from "./pages/PaymentVerify";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/new" element={<NewListing />} />
             <Route path="/dashboard/edit/:id" element={<EditListing />} />
+            <Route path="/payment/checkout/:id" element={<PaymentCheckout />} />
+            <Route path="/payment/verify" element={<PaymentVerify />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

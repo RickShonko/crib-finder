@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Home, Edit, Trash2, Eye, Loader2, ArrowLeft } from 'lucide-react';
+import { Plus, Home, Edit, Trash2, Eye, Loader2, ArrowLeft, CreditCard } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -141,6 +141,9 @@ const Dashboard = () => {
                             >
                               {house.availability === 'available' ? 'Available' : 'Taken'}
                             </Badge>
+                            {house.payment_status === 'unpaid' && (
+                              <Badge variant="destructive">Unpaid</Badge>
+                            )}
                           </div>
                           <p className="text-xl font-bold text-primary">
                             {formatPrice(house.rent_price)}
@@ -157,6 +160,14 @@ const Dashboard = () => {
                             />
                           </div>
                           <div className="flex gap-2">
+                            {house.payment_status === 'unpaid' && (
+                              <Button asChild size="sm">
+                                <Link to={`/payment/checkout/${house.id}`}>
+                                  <CreditCard className="h-4 w-4 mr-1" />
+                                  Pay
+                                </Link>
+                              </Button>
+                            )}
                             <Button asChild variant="outline" size="sm">
                               <Link to={`/house/${house.id}`}>
                                 <Eye className="h-4 w-4" />

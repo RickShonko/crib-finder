@@ -23,12 +23,12 @@ const NewListing = () => {
 
   const handleSubmit = async (data: any) => {
     try {
-      await createHouse.mutateAsync(data);
+      const result = await createHouse.mutateAsync(data);
       toast({
         title: 'Listing created!',
-        description: 'Your property is now visible to potential tenants.',
+        description: 'Please complete payment to make it live.',
       });
-      navigate('/dashboard');
+      navigate(`/payment/checkout/${result.id}`);
     } catch (error: any) {
       toast({
         variant: 'destructive',

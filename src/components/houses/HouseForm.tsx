@@ -31,7 +31,7 @@ type HouseFormData = z.infer<typeof houseSchema>;
 interface HouseFormProps {
   house?: House;
   landlordId: string;
-  onSubmit: (data: Omit<House, 'id' | 'created_at' | 'updated_at'>) => Promise<void>;
+  onSubmit: (data: any) => Promise<void>;
   isLoading?: boolean;
 }
 

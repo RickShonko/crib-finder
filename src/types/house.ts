@@ -1,6 +1,8 @@
 export type HouseType = 'bedsitter' | 'single_room' | 'one_bedroom' | 'two_bedroom' | 'shared';
 export type AvailabilityStatus = 'available' | 'taken';
 
+export type PaymentStatus = 'unpaid' | 'paid';
+
 export interface House {
   id: string;
   landlord_id: string;
@@ -16,6 +18,10 @@ export interface House {
   contact_phone: string;
   whatsapp_link: string | null;
   vacant_positions: number;
+  payment_status: PaymentStatus;
+  payment_reference: string | null;
+  payment_amount: number | null;
+  paid_at: string | null;
   created_at: string;
   updated_at: string;
 }

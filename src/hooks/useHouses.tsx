@@ -9,6 +9,7 @@ export function useHouses(filters?: HouseFilters) {
       let query = supabase
         .from('houses')
         .select('*')
+        .eq('payment_status', 'paid')
         .order('created_at', { ascending: false });
 
       if (filters?.search) {
