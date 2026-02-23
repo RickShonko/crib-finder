@@ -15,6 +15,7 @@ import EditListing from "./pages/EditListing";
 import PaymentCheckout from "./pages/PaymentCheckout";
 import PaymentVerify from "./pages/PaymentVerify";
 import NotFound from "./pages/NotFound";
+import AdminNewListing from "./pages/AdminNewListing";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/dashboard/edit/:id" element={<EditListing />} />
             <Route path="/payment/checkout/:id" element={<PaymentCheckout />} />
             <Route path="/payment/verify" element={<PaymentVerify />} />
+            <Route path="/admin/new" element={<AdminNewListing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
