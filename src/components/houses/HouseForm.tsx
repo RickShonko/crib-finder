@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { optimizeImage } from '@/lib/imageOptimizer';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -65,18 +66,33 @@ export function HouseForm({ house, landlordId, onSubmit, isLoading }: HouseFormP
 
     for (let i = 0; i < Math.min(files.length, 5 - photos.length); i++) {
       const file = files[i];
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
 
-      const { data, error } = await supabase.storage
-        .from('house-photos')
-        .upload(fileName, file);
+      try {
+        const { blob, fileName } = await optimizeImage(file);
 
-      if (!error && data) {
-        const { data: urlData } = supabase.storage
+        const { data, error } = await supabase.storage
           .from('house-photos')
-          .getPublicUrl(data.path);
-        newPhotos.push(urlData.publicUrl);
+          .upload(fileName, blob, { contentType: 'image/webp' });
+
+        if (!error && data) {
+          const { data: urlData } = supabase.storage
+            .from('house-photos')
+            .getPublicUrl(data.path);
+          newPhotos.push(urlData.publicUrl);
+        }
+      } catch (err) {
+        console.error('Image optimization failed, uploading original:', err);
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        const { data, error } = await supabase.storage
+          .from('house-photos')
+          .upload(fileName, file);
+        if (!error && data) {
+          const { data: urlData } = supabase.storage
+            .from('house-photos')
+            .getPublicUrl(data.path);
+          newPhotos.push(urlData.publicUrl);
+        }
       }
     }
 
